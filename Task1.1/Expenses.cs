@@ -28,7 +28,9 @@ public abstract class Expense
         public override double Amount()
         {
            
-           222222
+           
+            
+            //222222
             
 
         }
