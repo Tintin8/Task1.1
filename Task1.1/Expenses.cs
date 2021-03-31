@@ -31,8 +31,9 @@ namespace Task1._1
         {
             Console.WriteLine("Please enter amount spent on gro ");
             double value = double.Parse(Console.ReadLine());
-            Console.WriteLine("You spend " + value + " on groceries a month");
+            Console.WriteLine("You spend " + value + " on groceries a month"); 
             return value;
+
 
 
 
