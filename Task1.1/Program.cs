@@ -8,15 +8,15 @@ namespace Task1._1
         {
 
             greetings();
-            monthlyIncome();
+           
 
 
 
 
 
             
-            //groceries amount = new groceries();
-            //amount.Amount();
+            groceries amount = new groceries();
+            amount.Amount();
 
 
 
