@@ -9,16 +9,16 @@ namespace Task1._1.Models
         {
             Console.WriteLine("");
 
-            Console.Write(PhoneBills.EnterAmountSpent() + "on phone billing per month.");
+            Console.Write(EnterAmountSpent() + "on phone billing per month.");
 
             Console.WriteLine("");
         }
 
         public override double Amount()
         {
-            double cost = PhoneBills.NewAmount();
-            
-            Expense.Expenses[5] = cost;
+            double cost = NewAmount();
+
+            Expenses[5] = cost;
          
             return cost;
         }

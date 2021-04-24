@@ -37,7 +37,7 @@ namespace Task1._1.Models
             double monthlyPayment = total / repayMonths;                                                    // Finds out monthly payment owed with provided information
             Console.WriteLine("Your total monthly payments are: ");
             Console.WriteLine("R" + monthlyPayment);
-            Expense.Expenses[8] = monthlyPayment;                                                          // stores final amount per month into array slot 8
+            Expenses[8] = monthlyPayment;                                                          // stores final amount per month into array slot 8
 
             return monthlyPayment;                                                                        // returns final monthlypayment that will be added to other monthly payments in array
         }

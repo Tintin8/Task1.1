@@ -9,18 +9,17 @@ namespace Task1._1.Models
         {
             Console.WriteLine("");
 
-            Console.Write(TravelCosts.EnterAmountSpent() + "on travel costs per month.");
+            Console.Write(EnterAmountSpent() + "on travel costs per month.");
 
             Console.WriteLine("");
         }
         public override double Amount()
         {
-            double cost = TravelCosts.NewAmount();
+            double cost = NewAmount();
 
-            Expense.Expenses[4] = cost;
+            Expenses[4] = cost;
 
             return cost;
-
         }
     }
 }

@@ -24,22 +24,22 @@ namespace Task1._1
             TravelCosts();
             Console.WriteLine("");
 
-            phoneBills();
+            PhoneBills();
             Console.WriteLine("");
 
-            otherExpense();
+            OtherExpense();
             Console.WriteLine("");
 
             HomePayment();
             Console.WriteLine("");
 
-            approvalAlert();
+            ApprovalAlert();
             Console.WriteLine("");
 
-            totalExpenses();
+            TotalExpenses();
             Console.WriteLine();
 
-            moneyLeft();
+            MoneyLeft();
 
             //Print array
             //Expense.Expenses.ForEach(item => Console.WriteLine(item.ToString()));
@@ -138,7 +138,7 @@ namespace Task1._1
             amount.Amount();
         }
 
-        static void phoneBills()                                                                  // method to call cellular and its functions
+        static void PhoneBills()                                                                  // method to call cellular and its functions
         {
             var amount = new PhoneBills();
 
@@ -147,7 +147,7 @@ namespace Task1._1
             amount.Amount();
         }
 
-        static void otherExpense()                                                                  // method to call otherexpenses and its functions
+        static void OtherExpense()                                                                  // method to call otherexpenses and its functions
         {
             var amount = new OtherExpense();
 
@@ -156,20 +156,20 @@ namespace Task1._1
             amount.Amount();
         }
 
-        static void approvalAlert()                                                                 // method that checks whether or not the monthly homeloan payment will be more than a 3rd of users rent and throws warning 
+        static void ApprovalAlert()                                                                 // method that checks whether or not the monthly homeloan payment will be more than a 3rd of users rent and throws warning 
         {
             if (Expense.Expenses[8]>(0.33*Expense.Expenses[0]))                                         // checks if position [8]payment is greater that a 3rd of position [0] monthly income
                 Console.WriteLine("WARNING, YOUR HOME LOAN MONTHLY PAYMENT EXCEEDS A 3RD OF YOUR TOTAL MONTHLY INCOME THEREFORE YOU ARE UNLIKELY TO BE APPROVED FOR A LOAN"); // warning
         }
 
-        static void totalExpenses()                                 // method calculation total expenses by adding each from the array postion related to the expense
+        static void TotalExpenses()                                 // method calculation total expenses by adding each from the array postion related to the expense
         {
            double totalExpense= Expense.Expenses[1] + Expense.Expenses[2]+ Expense.Expenses[3] + Expense.Expenses[4] + Expense.Expenses[5] + Expense.Expenses[6]+ Expense.Expenses[7];
 
            Console.WriteLine("Your total expenses are : R"+totalExpense);
         }
 
-        static void moneyLeft()                                         // method for calculating what is left after all expenses are deducted ( homeloan/rent included)
+        static void MoneyLeft()                                         // method for calculating what is left after all expenses are deducted ( homeloan/rent included)
         {
             double totalExpense = Expense.Expenses[1] + Expense.Expenses[2] + Expense.Expenses[3] + Expense.Expenses[4] + Expense.Expenses[5] + Expense.Expenses[6] + Expense.Expenses[7];
 

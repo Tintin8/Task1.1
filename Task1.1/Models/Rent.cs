@@ -11,9 +11,9 @@ namespace Task1._1.Models
         }
         public override double Amount()
         {
-            double cost = Rent.NewAmount();
+            double cost = NewAmount();
             
-            Expense.Expenses[7] = cost;
+            Expenses[7] = cost;
          
             return cost;
         }
