@@ -1,4 +1,5 @@
 ﻿    using System;
+using System.Linq;
 using Task1._1.Models;
 using Task1._1.Models.Base;
 
@@ -10,13 +11,19 @@ namespace Task1._1
         {                                                                                                   // no calculations will be kept in main as to make the app as scalable as possible
             Greetings();
             Console.WriteLine("");
-
+    
             MonthlyIncome();
+
+
             Tax();
             Console.WriteLine("");
 
+            
+
             Groceries();
             Console.WriteLine("");
+
+            
 
             Utilities();
             Console.WriteLine("");
@@ -30,19 +37,50 @@ namespace Task1._1
             OtherExpense();
             Console.WriteLine("");
 
+
+
             HomePayment();
             Console.WriteLine("");
+
+           
 
             ApprovalAlert();
             Console.WriteLine("");
 
+            VehiclePayment();
+            Console.WriteLine("");
+
+           
+
             TotalExpenses();
             Console.WriteLine();
 
+            
+
+
+
             MoneyLeft();
 
+            TotalCheck();
+            Console.WriteLine();
+
+
+
+            order();
+
+
+
+
+
+
+
+
+
+
+
+
             //Print array
-            //Expense.Expenses.ForEach(item => Console.WriteLine(item.ToString()));
+            ////Expense.Expenses.ForEach(item => Console.WriteLine(item.ToString()));
         }
 
 
@@ -83,7 +121,8 @@ namespace Task1._1
 
             else if (answer.Equals("3"))                                // if user chooses 3 the program continues with R0 paid for living expenses
             {
-               //PLACEHOLDER
+                Expense.Expenses.Add(0);                                   // Rent free in your head- Cranberries zombie
+
             }
             else 
             {
@@ -91,13 +130,45 @@ namespace Task1._1
             }
         }
 
+        static void VehiclePayment()                                                                   // method containing if statment that will determin via user input whether or not they will be renting , buying or not paying rent etc.
+        {
+            Console.WriteLine("Please type 1 if buying a car or 2 if not ");
+             var answer = Console.ReadLine();
+
+            if (answer.Equals("1"))                                                                 // if statement for determining living status costs
+            {
+                Console.WriteLine("HOMELOAN");
+
+                Vehicle amount = new Vehicle();
+
+                amount.PrintLine();
+
+                amount.Amount();
+
+            }
+            else if (answer.Equals("2"))
+            {
+                Expense.Expenses.Add(0);
+
+            }
+
+           
+            else
+            {
+                Environment.Exit(0);
+            }
+        }
+
+           
         static double MonthlyIncome()                                                           // monthly income is stored here and called. *note the only value calculation as it is not an expense
         {
 
             Console.WriteLine("Please enter your monthly income");
             double answer = double.Parse(Console.ReadLine());
             Console.WriteLine();
-            Expense.Expenses[0] = answer;                                                       // is stored at position [0] in the array as to help with unity
+            Expense.Expenses.Add(answer);
+
+            /*Expense.Expenses[0] = answer; */                                                      // is stored at position [0] in the array as to help with unity
             return answer;
             
 
@@ -156,26 +227,63 @@ namespace Task1._1
             amount.Amount();
         }
 
+
+
         static void ApprovalAlert()                                                                 // method that checks whether or not the monthly homeloan payment will be more than a 3rd of users rent and throws warning 
         {
-            if (Expense.Expenses[8]>(0.33*Expense.Expenses[0]))                                         // checks if position [8]payment is greater that a 3rd of position [0] monthly income
-                Console.WriteLine("WARNING, YOUR HOME LOAN MONTHLY PAYMENT EXCEEDS A 3RD OF YOUR TOTAL MONTHLY INCOME THEREFORE YOU ARE UNLIKELY TO BE APPROVED FOR A LOAN"); // warning
+
+        
+                 double home_30 = (Expense.Expenses[0]) * (0.33);
+                 if (Expense.Expenses[7]>home_30)                                         // checks if position [7]payment is greater that a 3rd of position [0] monthly income
+                    Console.WriteLine("WARNING, YOUR HOME LOAN MONTHLY PAYMENT EXCEEDS A 3RD OF YOUR TOTAL MONTHLY INCOME THEREFORE YOU ARE UNLIKELY TO BE APPROVED FOR A LOAN"); // warning
         }
 
         static void TotalExpenses()                                 // method calculation total expenses by adding each from the array postion related to the expense
         {
-           double totalExpense= Expense.Expenses[1] + Expense.Expenses[2]+ Expense.Expenses[3] + Expense.Expenses[4] + Expense.Expenses[5] + Expense.Expenses[6]+ Expense.Expenses[7];
+           double totalExpense= Expense.Expenses[1] + Expense.Expenses[2]+ Expense.Expenses[3] + Expense.Expenses[4] + Expense.Expenses[5] + Expense.Expenses[6] + Expense.Expenses[7] + Expense.Expenses[8];
 
            Console.WriteLine("Your total expenses are : R"+totalExpense);
+           
         }
 
         static void MoneyLeft()                                         // method for calculating what is left after all expenses are deducted ( homeloan/rent included)
         {
-            double totalExpense = Expense.Expenses[1] + Expense.Expenses[2] + Expense.Expenses[3] + Expense.Expenses[4] + Expense.Expenses[5] + Expense.Expenses[6] + Expense.Expenses[7];
+            double totalExpense = Expense.Expenses[1] + Expense.Expenses[2] + Expense.Expenses[3] + Expense.Expenses[4] + Expense.Expenses[5] + Expense.Expenses[6] + Expense.Expenses[7]+ Expense.Expenses[8];
 
             double residual = (Expense.Expenses[0]-totalExpense);                                               // income [0] minus total expenses [1]-[9]
            
-            Console.WriteLine("Your total remaining value is :R"+residual);                                 
+            Console.WriteLine("Your total remaining value is :R"+residual);                   
+            
+        }
+
+        static void TotalCheck  ()                                         // method for total expenses to check if exceeds 75%
+        {
+            double totalExpense = Expense.Expenses[1] + Expense.Expenses[2] + Expense.Expenses[3] + Expense.Expenses[4] + Expense.Expenses[5] + Expense.Expenses[6] + Expense.Expenses[7] + Expense.Expenses[8];
+            double income = Expense.Expenses[0];
+            double value = 0.75;
+            double variable = value * income;
+
+
+
+
+            if (totalExpense>variable )                                         // 
+                Console.WriteLine("WARNING, YOUR TOTAL MONTHLY SPENDING EXCEEDS 75% of your income"); // warning
+
+            else
+
+            {
+                Environment.Exit(0);
+
+            }
+        }
+        static void order()                                                                       // method to call orders
+                                                                                                  // and its functions
+        {
+
+
+
+            Expense.Expenses.ForEach(x => Console.WriteLine(x));
+
         }
     }
 }

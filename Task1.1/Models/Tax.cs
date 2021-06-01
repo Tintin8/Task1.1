@@ -17,8 +17,8 @@ namespace Task1._1.Models
         public override double Amount()                                             // Overrides the method found in Expense and collects user input while storing it into the array in slot [1]
         {
             double cost = NewAmount();
-
-            Expenses[1] = cost;
+            Expense.Expenses.Add(cost);
+            //Expenses[1] = cost;
 
             return cost;                                                            // Since the amount() in expense is a double, the inherited class returns a value
         }

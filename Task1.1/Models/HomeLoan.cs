@@ -28,6 +28,18 @@ namespace Task1._1.Models
             double repayMonths = double.Parse(Console.ReadLine());                                          // Collects the months value that will be used in the calculation
             int months = Convert.ToInt32(repayMonths);
 
+            while (repayMonths < 240 || repayMonths > 360)                                                 // Missing in part 1 , check to see if user entered months are between 240-360 otherwise it will request information again
+            {
+
+                Console.WriteLine("Please enter Number of months to repay");
+
+
+                repayMonths = double.Parse(Console.ReadLine());                                          // Collects the months value that will be used in the calculation
+                months = Convert.ToInt32(repayMonths);
+
+            }
+
+
             double interestRateNumber = interestRatePercentage / 100;                                       // interest rate from user in decimal or int 12/2,3 etc divided by 100 to get a double to be used later.
             double priceLessDeposit = propertyPrice - totalDeposit;                                         // price with deposit sabtracted in order to discover the amount left to be paid
             double numberYears = repayMonths / 12;                                                         // number of years to pay out calculated by total months /12
@@ -37,7 +49,8 @@ namespace Task1._1.Models
             double monthlyPayment = total / repayMonths;                                                    // Finds out monthly payment owed with provided information
             Console.WriteLine("Your total monthly payments are: ");
             Console.WriteLine("R" + monthlyPayment);
-            Expenses[8] = monthlyPayment;                                                          // stores final amount per month into array slot 8
+            Expense.Expenses.Add(monthlyPayment);
+            
 
             return monthlyPayment;                                                                        // returns final monthlypayment that will be added to other monthly payments in array
         }

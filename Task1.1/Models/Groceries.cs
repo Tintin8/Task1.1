@@ -15,8 +15,8 @@ namespace Task1._1.Models
         public override double Amount()
         {
             double cost = NewAmount();
-
-            Expenses[2] = cost;
+            Expense.Expenses.Add(cost);
+            //Expenses[2] = cost;
 
             return cost;
         }
