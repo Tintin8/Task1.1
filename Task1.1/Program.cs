@@ -283,7 +283,7 @@ namespace Task1._1
             for (int i = 0; i < Expense.Expenses.Count - 1; i++)
                 Console.WriteLine(Expense.Expenses[i]);
 
-
+            
         }
     }
 }
